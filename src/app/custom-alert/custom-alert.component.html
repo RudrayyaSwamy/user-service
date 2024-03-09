@@ -1,0 +1,5 @@
+<!-- custom-alert.component.html -->
+<div [ngClass]="{'success': type === 'success', 'error': type === 'error'}">
+  {{ message }}
+  <span class="close-btn" (click)="onClose()">×</span>
+</div>

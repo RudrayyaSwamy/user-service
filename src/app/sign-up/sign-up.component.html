@@ -1,0 +1,55 @@
+<div class="signup-container">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <h2>Sign Up</h2>
+
+    <div class="form-group">
+      <label for="name">Username:</label>
+      <input type="text" id="name" formControlName="name">
+      <div class="error-message"*ngIf="hasError('name', 'required')">
+      User Name is required
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div class="error-message" *ngIf="hasError('email', 'required')">
+        Email is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password">
+      <div class="error-message" *ngIf="hasError('password', 'required')">
+        Password is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword">
+      <div class="error-message" *ngIf="hasError('confirmPassword', 'required')">
+       Please Confirm Password is required
+      </div>
+     <div class="error-message" *ngIf="passwordMisMatch">{{ this.passwordMisMatch }}</div> 
+    </div>
+
+    <div class="form-group">
+      <label for="roles">Role:</label>
+      <select id="roles" formControlName="roles">
+        <option value="" disabled>Select an option</option>
+        <option value="USER" >User</option>
+        <option value="ADMIN">Admin</option>
+      </select>
+      <div class="error-message" *ngIf="hasError('roles', 'required')">
+        Role is required
+       </div>
+    </div>
+ 
+    <button type="submit" >Sign Up</button>
+    <button class="signIn" routerLink="/" routerLinkActive="active">Login</button>
+    <div class="sucess-message" *ngIf="sucessMessage">{{ this.sucessMessage }}</div> 
+    <div class="error-message" *ngIf="errorMessage">{{ this.errorMessage }}</div> 
+  </form>
+</div>

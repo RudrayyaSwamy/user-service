@@ -1,0 +1,52 @@
+
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    width: 200px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .dashboard-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column-reverse;
+    }
+  
+    nav {
+      width: 100%;
+    }
+  }
+  

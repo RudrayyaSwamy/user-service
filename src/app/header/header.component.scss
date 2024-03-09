@@ -1,0 +1,29 @@
+.navbar {
+    background-color: #333; /* Dark background color for the navbar */
+    padding: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin-right: 15px;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+
+  button {
+    align-items: end;
+    margin-top: -20px;
+    text-align: right;
+    float: right;
+  }
+  

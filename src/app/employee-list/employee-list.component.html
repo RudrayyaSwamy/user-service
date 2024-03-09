@@ -1,0 +1,58 @@
+<!-- user-list.component.html -->
+<app-custom-alert *ngIf="alertMessage" [message]="alertMessage" [type]="alertType" (close)="onCloseAlert()"></app-custom-alert>
+<h2>User List</h2>
+<div class="sucess-message" *ngIf="sucessMessage">{{ this.sucessMessage }}</div> 
+    <div class="error-message" *ngIf="errorMessage">{{ this.errorMessage }}</div>
+<div class='empList'>
+  <div class="empTable">
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.roles }}</td>
+          <td><button (click)="editRow(user)">Edit</button></td>
+          <td><button (click)="deleteUser(user.id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="edit-container">
+    <form [formGroup]="editUserForm" *ngIf="isFormVisible">
+      <input type="hidden" id="id" formControlName="id"  />
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name"  />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email" />
+      </div>
+      <div class="form-group">
+        <label for="roles">Role:</label>
+      <select id="roles" formControlName="roles">
+        <option value="" disabled>Select an option</option>
+        <option value="USER" >User</option>
+        <option value="ADMIN">Admin</option>
+      </select>
+      </div>
+      <button type="button" (click)="saveRow()">Save</button>
+      <button type="button" (click)="cancelEdit()">Cancel</button>
+
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
